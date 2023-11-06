@@ -1,0 +1,29 @@
+services:
+  vector_db:
+    container_name: vector_db
+    build:
+      context: ./dockerfiles
+      dockerfile: postgres.dockerfile
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=movie_db
+      - POSTGRES_USER=dev
+      - POSTGRES_PASSWORD=laplacian
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    volumes:
+      - ./data:/var/lib/postgresql/data
+  # db:
+  #   hostname: db
+  #   image: ankane/pgvector
+  #   ports:
+  #    - 5432:5432
+  #   restart: always
+  #   environment:
+  #     - POSTGRES_DB=vectordb
+  #     - POSTGRES_USER=testuser
+  #     - POSTGRES_PASSWORD=testpwd
+  #     - POSTGRES_HOST_AUTH_METHOD=trust
+  #   volumes:
+  #    - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
