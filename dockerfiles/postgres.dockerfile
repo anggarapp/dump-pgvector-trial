@@ -5,6 +5,7 @@ RUN apk add build-base
 RUN apk add clang15
 RUN apk add llvm15-dev llvm15
 RUN apk add postgresql-dev
+RUN apk add --no-cache tzdata
 WORKDIR /home
 RUN git clone --branch v0.5.1 https://github.com/pgvector/pgvector.git
 WORKDIR /home/pgvector
