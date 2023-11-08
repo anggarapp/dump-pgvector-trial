@@ -1,6 +1,6 @@
 services:
   vector_db:
-    container_name: vector_db
+    # container_name: vector_db
     build:
       context: ./dockerfiles
       dockerfile: postgres.dockerfile
